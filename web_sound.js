@@ -41,7 +41,7 @@ app.get('/',(req,res)=>{
 app.post('/',(req,res)=>{
   let body = req.body;
 
-  console.log("다음값으로 설정됩니다"));
+  console.log("다음값으로 설정됩니다");
   console.log('==> :'+ body.threshold);
   QuietSound = body.threshold;
   res.redirect('/');
