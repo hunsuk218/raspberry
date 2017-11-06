@@ -9,6 +9,8 @@ var led1state = '#b0b0b0';
 var buzzerstate = '#b0b0b0';
 var lightstate = '#b0b0b0';
 
+//Test좀 해보자 제발
+
 app.get('/',(req,res) => {
   fs.readFile('views/contpage.ejs','utf-8',(error,data) => {
     if(error)
