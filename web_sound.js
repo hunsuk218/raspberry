@@ -4,7 +4,7 @@ const app = express();
 const gpio = require('wiring-pi');
 const mcpadc = require('mcp-adc');
 const soundsensor = new mcpadc.Mcp3208();
-const bodyParser = require("body-Parser");
+const bodyParser = require("body-parser");
 
 const CS_MCP3208 = 10;
 const SPI_CHANNEL = 0;
