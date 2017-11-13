@@ -1,10 +1,8 @@
-const http = require('http'),
-const gpio = require('wiring-pi');
+const http = require('http'), gpio = require('wiring-pi');
 const fs = require('fs');
 const socketio = require('socket.io');
 const LED = 29;
-const TRIG = 26,
-const ECHO = 27;
+const TRIG = 26, ECHO = 27;
 var startTime, travelTime; // 초음파거리계산용
 var index = 0,
 var value = []; // 측정거리데이터 저장용
