@@ -26,7 +26,7 @@ const htsensor = {
       console.log("RELAY ON!!");
         gpio.digitalWrite(RELAY,HIGH);
     }
-    else if((data.temperature.toFixed(1) - data) > 1){
+    else if((data - result.temperature.toFixed(1) ) > 1){
       console.log("RELAY OFF!!");
       gpio.digitalWrite(RELAY,LOW);
     }
