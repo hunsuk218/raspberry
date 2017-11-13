@@ -3,10 +3,9 @@ const fs = require('fs');
 const socketio = require('socket.io');
 const LED = 29;
 const TRIG = 26, ECHO = 27;
-const TRIG = 26;
 const ECHO = 27;
-var startTime, travelTime; // 초음파거리계산용
-var index = 0, value = []; // 측정거리데이터 저장용
+var startTime, travelTime;
+var index = 0, value = [];
 var timerid, timeout = 800; // 타이머제어용
 var cnt = 1; // 타이머 제어용
 const server = http.createServer(function(request, response) {
