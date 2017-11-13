@@ -1,7 +1,7 @@
 const http = require('http'), gpio = require('wiring-pi');
 const fs = require('fs');
 const socketio = require('socket.io');
-const LEDRED = 29, LEDBLUE = 28, LEDGREEN = 25;
+const LEDRED = 25, LEDBLUE = 29, LEDGREEN = 28; //파초빨  빨 파 초
 const TRIG = 26, ECHO = 27;
 var startTime, travelTime;
 var index = 0, value = [];
@@ -55,18 +55,20 @@ const watchon = () => {
       gpio.digitalWrite(LEDGREEN,0);
       gpio.digitalWrite(LEDBLUE,0);
       gpio.digitalWrite(LEDRED,1);
+      console.log("RED");
     }
     else if(distance >=10 & distance<50){
       gpio.digitalWrite(LEDGREEN,0);
       gpio.digitalWrite(LEDBLUE,1);
       gpio.digitalWrite(LEDRED,0);
+      console.log("BLUE");
     }
     else if(distance >= 50){
       gpio.digitalWrite(LEDGREEN,1);
       gpio.digitalWrite(LEDBLUE,0);
       gpio.digitalWrite(LEDRED,0);
+      console.log("GREEN");
     }
-
 
     if (index < 500) {
       value[index++] = distance;
