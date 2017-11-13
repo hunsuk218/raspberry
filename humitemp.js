@@ -31,6 +31,6 @@ const htsensor = {
   }
 
 };
-var data = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
+//var data = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
 gpio.pinMode(RELAY,gpio.OUTPUT);
 htsensor.read();
