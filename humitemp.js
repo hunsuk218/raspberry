@@ -11,8 +11,8 @@ const htsensor = {
   ],
   read: function() {
       let result;
-      result = humitemp.read(this.sensors[1].type, this.sensors[1].pin);
-      console.log(this.sensors[1].name + ": " +
+      result = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
+      console.log(this.sensors[0].name + ": " +
         result.temperature.toFixed(1) + "°C, " +
         result.humidity.toFixed(1) + "%");
 
@@ -31,6 +31,6 @@ const htsensor = {
   }
 
 };
-var data = humitemp.read(this.sensors[1].type, this.sensors[1].pin);
+var data = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
 gpio.pinMode(RELAY,gpio.OUTPUT);
 htsensor.read();
