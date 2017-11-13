@@ -10,7 +10,9 @@ const htsensor = {
     }
   ],
   read: function() {
-      let result;
+    if(count == 0){
+    var data = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
+  }let result;
       result = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
       console.log(this.sensors[0].name + ": " +
         result.temperature.toFixed(1) + "°C, " +
@@ -24,6 +26,7 @@ const htsensor = {
       console.log("RELAY OFF!!");
       gpio.digitalWrite(RELAY,LOW)
     }
+    count += 1;
 
     setTimeout(function() {
       htsensor.read();
@@ -31,6 +34,6 @@ const htsensor = {
   }
 
 };
-var data = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
+var count =0;
 gpio.pinMode(RELAY,gpio.OUTPUT);
 htsensor.read();
