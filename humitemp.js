@@ -11,8 +11,9 @@ const htsensor = {
   ],
   read: function() {
     if(count == 0){
-    var data = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
-  }let result;
+    var data = humitemp.read(this.sensors[1].type, this.sensors[1].pin);
+  }
+    let result;
       result = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
       console.log(this.sensors[0].name + ": " +
         result.temperature.toFixed(1) + "°C, " +
