@@ -3,7 +3,6 @@ const fs = require('fs');
 const socketio = require('socket.io');
 const LED = 29;
 const TRIG = 26, ECHO = 27;
-const ECHO = 27;
 var startTime, travelTime;
 var index = 0, value = [];
 var timerid, timeout = 800; // 타이머제어용
