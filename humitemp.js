@@ -10,14 +10,16 @@ const htsensor = {
     }
   ],
   read: function() {
-    if(count == 0){
-    var data = humitemp.read(this.sensors[1].type, this.sensors[1].pin);
-  }
+
     let result;
       result = humitemp.read(this.sensors[0].type, this.sensors[0].pin);
       console.log(this.sensors[0].name + ": " +
         result.temperature.toFixed(1) + "°C, " +
         result.humidity.toFixed(1) + "%");
+
+        if(count == 0){
+        var data =result;
+      }
 
     if((result.temperature.toFixed(1) - data.temperature.toFixed(1)) >1){
       console.log("RELAY ON!!");
