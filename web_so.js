@@ -2,12 +2,9 @@ const http = require('http'), gpio = require('wiring-pi');
 const fs = require('fs');
 const socketio = require('socket.io');
 const LED = 29;
-<<<<<<< HEAD
 const TRIG = 26, ECHO = 27;
-=======
 const TRIG = 26;
 const ECHO = 27;
->>>>>>> 288bfaabc5d14d2793052343d9c846b6b52ee7df
 var startTime, travelTime; // 초음파거리계산용
 var index = 0, value = []; // 측정거리데이터 저장용
 var timerid, timeout = 800; // 타이머제어용
