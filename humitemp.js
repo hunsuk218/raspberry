@@ -19,6 +19,7 @@ const htsensor = {
 
         if(count == 0){
         var data = result;
+        console.log(data.temperature.toFixed(1) +"CHECK!!");
       }
 
     if((result.temperature.toFixed(1) - data.temperature.toFixed(1)) >1){
