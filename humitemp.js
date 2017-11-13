@@ -18,16 +18,16 @@ const htsensor = {
         result.humidity.toFixed(1) + "%");
 
         if(count == 0){
-        var data =result;
+        var data = result;
       }
 
     if((result.temperature.toFixed(1) - data.temperature.toFixed(1)) >1){
       console.log("RELAY ON!!");
-        gpio.digitalWrite(RELAY,HIGH)
+        gpio.digitalWrite(RELAY,HIGH);
     }
     else if((data.temperature.toFixed(1) - result.temperature.toFixed(1)) > 1){
       console.log("RELAY OFF!!");
-      gpio.digitalWrite(RELAY,LOW)
+      gpio.digitalWrite(RELAY,LOW);
     }
     count += 1;
 
