@@ -1,10 +1,8 @@
 const humitemp = require("node-dht-sensor");
+const gpio = require("wiring-pi");
+const RELAY = 29;
 const htsensor = {
-  sensors: [{
-      name: " Indoor(Blue)",
-      type: 11,
-      pin: 12
-    },
+  sensors: [
     {
       name: "Outdoor(White)",
       type: 22,
@@ -12,16 +10,27 @@ const htsensor = {
     }
   ],
   read: function() {
-    for (let index in this.sensors) {
       let result;
-      result = humitemp.read(this.sensors[index].type, this.sensors[index].pin);
-      console.log(this.sensors[index].name + ": " +
+      result = humitemp.read(this.sensors[1].type, this.sensors[1].pin);
+      console.log(this.sensors[1].name + ": " +
         result.temperature.toFixed(1) + "°C, " +
         result.humidity.toFixed(1) + "%");
+
+    if((result.temperature.toFixed(1) - data.temperature.toFixed(1)) >1){
+      console.log("RELAY ON!!");
+        gpio.digitalWrite(RELAY,HIGH)
     }
+    else if((data.temperature.toFixed(1) - result.temperature.toFixed(1)) > 1){
+      console.log("RELAY OFF!!");
+      gpio.digitalWrite(RELAY,LOW)
+    }
+
     setTimeout(function() {
       htsensor.read();
     }, 2500); // 최소 2초이상 주기
   }
+
 };
+var data = humitemp.read(this.sensors[1].type, this.sensors[1].pin);
+gpio.pinMode(RELAY,gpio.OUTPUT);
 htsensor.read();
