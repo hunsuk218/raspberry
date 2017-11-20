@@ -45,7 +45,7 @@ const Triggering = function() {
 
 const Retrieve = function() {
   let stamp_distance;
-  client.query('SELECT * FROM `sonic`', function(error, results, fields) {
+  client.query('SELECT * FROM sonic', function(error, results, fields) {
     console.log('-------------------------------------------');
     results.forEach(function(element, i) {
       stamp_distance = '';
@@ -53,7 +53,7 @@ const Retrieve = function() {
       stamp_distance += element.stamp.getMilliseconds() + ' ';
       stamp_distance += element.distance;
       console.log(stamp_distance);
-    });
+    })
   });
   setTimeout(Retrieve, 5000);
 }
