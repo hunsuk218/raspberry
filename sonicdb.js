@@ -9,8 +9,8 @@ var travelTime;
 const client = mysql.createConnection({
   host: 'localhost',
   port: 3306,
-  user: 'root',
-  password: 'gachon654321',
+  user: 'hooney',
+  password: 'hch',
   database: 'sensordb'
 });
 
