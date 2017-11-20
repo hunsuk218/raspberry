@@ -26,7 +26,7 @@ const Triggering = function(){
 
   startTime = gpio.micros();
   while(gpio.digitalRead(ECHO) == gpio.HIGH);
-  travelTime = gpio.micros() = startTime;
+  travelTime = gpio.micros() - startTime;
   distance = travelTime / 58;
   if(distance<400){
     console.log("Distance: %d cm",distance);
