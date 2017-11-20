@@ -61,5 +61,5 @@ setTimeout(Retrieve, 5000);
 gpio.wiringPiSetup();
 gpio.pinMode(TRIG, gpio.OUTPUT);
 gpio.pinMode(ECHO, gpio.INPUT);
-//setImmediate(Triggering);
-setImmediate(Retrieve);
+setImmediate(Triggering);
+//setImmediate(Retrieve);
