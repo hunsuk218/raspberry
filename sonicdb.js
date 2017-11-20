@@ -36,7 +36,8 @@ const Triggering = function() {
         if (err) {
           console.log("DB저장 실패!");
           console.log(err);
-        } else console.log("DB저장 완료!");
+        }
+        else console.log("DB저장 완료!");
       });
     }
   }
@@ -45,20 +46,20 @@ const Triggering = function() {
 
 const  Retrieve = function() {
   let stamp_distance;
-  client.query('SELECT * FROM `sonic`', function (error, results, fields) {
+  client.query('SELECT * FROM sonic', function (error, results, fields) {
     console.log("----------------------------------------");
     results.forEach(function(element, i) {
       stamp_distance = '';
       stamp_distance  += element.stamp.toLocaleString() + '.';
       stamp_distance  += element.stamp.getMilliseconds() + '  ';
       stamp_distance  += element.distance;     // 거리(distance) 추가 console.log(stamp_distance);    });
-    })
-  })
+    });
+  });
 setTimeout(Retrieve, 5000);
 }
 
 gpio.wiringPiSetup();
 gpio.pinMode(TRIG, gpio.OUTPUT);
 gpio.pinMode(ECHO, gpio.INPUT);
-setImmediate(Triggering);
+//setImmediate(Triggering);
 setImmediate(Retrieve);
