@@ -43,19 +43,18 @@ const Triggering = function() {
   setTimeout(Triggering, 700);
 }
 
-const Retrieve = function() {
+const  Retrieve = function() {
   let stamp_distance;
-  client.query('SELECT * FROM sonic', function(error, results, fields) {
-    console.log('-------------------------------------------');
+  client.query('SELECT * FROM `sonic`', function (error, results, fields) {
+    console.log("----------------------------------------");
     results.forEach(function(element, i) {
       stamp_distance = '';
-      stamp_distance += element.stamp.toLocaleString() + '.';
-      stamp_distance += element.stamp.getMilliseconds() + ' ';
-      stamp_distance += element.distance;
-      console.log(stamp_distance);
+      stamp_distance  += element.stamp.toLocaleString() + '.';
+      stamp_distance  += element.stamp.getMilliseconds() + '  ';
+      stamp_distance  += element.distance;     // 거리(distance) 추가 console.log(stamp_distance);    });
     })
-  });
-  setTimeout(Retrieve, 5000);
+  })
+setTimeout(Retrieve, 5000);
 }
 
 gpio.wiringPiSetup();
