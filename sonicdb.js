@@ -9,8 +9,8 @@ var travelTime;
 const client = mysql.createConnection({
   host: 'localhost',
   port: 3306,
-  user: 'hooney',
-  password: 'hch',
+  user: 'root',
+  password: 'gachon654321',
   database: 'sensordb'
 });
 
@@ -52,9 +52,10 @@ const  Retrieve = function() {
       stamp_distance = '';
       stamp_distance  += element.stamp.toLocaleString() + '.';
       stamp_distance  += element.stamp.getMilliseconds() + '  ';
-      stamp_distance  += element.distance;     // 거리(distance) 추가 console.log(stamp_distance);    });
+      stamp_distance  += element.distance;     // 거리(distance) 추가
+	console.log(stamp_distance);    });
     });
-  });
+ 
 setTimeout(Retrieve, 5000);
 }
 
@@ -62,4 +63,4 @@ gpio.wiringPiSetup();
 gpio.pinMode(TRIG, gpio.OUTPUT);
 gpio.pinMode(ECHO, gpio.INPUT);
 setImmediate(Triggering);
-//setImmediate(Retrieve);
+//;setImmediate(Retrieve);
