@@ -14,10 +14,6 @@ const client = mysql.createConnection({
   database:'sensordb'
 });
 
-gpio.wiringPiSetup();
-gpio.pinMode(TRIG,gpio.OUTPUT);
-gpio.pinMode(ECHO,gpio.INPUT);
-setImmediate(Triggering);
 
 const Triggering = function(){
   gpio.digitalWrite(TRIG,gpio.LOW);
@@ -63,4 +59,8 @@ const Retrieve = function(){
   });
 }
 
+gpio.wiringPiSetup();
+gpio.pinMode(TRIG,gpio.OUTPUT);
+gpio.pinMode(ECHO,gpio.INPUT);
+setImmediate(Triggering);
 setImmediate(Retrieve);
